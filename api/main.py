@@ -26,7 +26,7 @@ def youtube_search():
         'q': query,
         'key': API_KEY,
         'type': 'video',
-        'maxResults': 5  # Limite les résultats à 5 vidéos
+        'maxResults': 10  # Limite les résultats à 5 vidéos
     }
 
     # Effectuer une requête à l'API YouTube
