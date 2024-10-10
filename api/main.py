@@ -69,7 +69,7 @@ def regarde_video():
     if not search_results:
         return jsonify({'error': 'Aucune recherche préalable n\'a été effectuée.'}), 400
     
-    if not choice or choice < 1 or choice > len(search_results):
+    if choice is None or choice < 1 or choice > len(search_results):
         return jsonify({"error": "Choix invalide"}), 400
     
     selected_video = search_results[choice - 1]
@@ -90,3 +90,4 @@ def regarde_video():
 
 if __name__ == '__main__':
     app.run(host='0.0.0.0', port=5000, debug=True)
+        
