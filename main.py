@@ -51,11 +51,11 @@ def youtube_search():
             search_results.append(video_data)
 
         # Construire le message de réponse formaté
-        message = f"Api : voici la liste disponible :\n"
+        message = "Voici la liste disponible :\n"
         for i, result in enumerate(search_results, start=1):
-            message += f"\n{i}- {result['title']}"
-        
-        return jsonify({'message': message}), 200
+            message += f"{i}- {result['title']}\n"  # Ajout d'une nouvelle ligne
+
+        return jsonify({'message': message.strip()}), 200  # Utilisez .strip() pour enlever la dernière nouvelle ligne si nécessaire
     else:
         return jsonify({'error': 'Échec de la requête à l\'API YouTube.'}), response.status_code
 
